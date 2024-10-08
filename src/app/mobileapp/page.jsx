@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
+
 import Zomato from '../../assets/mobileimage/Zomato.jpeg'
 import Onemg from '../../assets/mobileimage/Onemg.png'
 import Bigbusket from '../../assets/mobileimage/Bigbusket.png'
@@ -13,17 +15,15 @@ import Swiggy from '../../assets/mobileimage/Swiggy.png'
 import Twitter from '../../assets/mobileimage/Twitter.png'
 import Whatsapp from '../../assets/mobileimage/Whatsapp.jpg'
 
-export default function ProductCards() {
+export default function EnhancedProductCards() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const router = useRouter()
 
   useEffect(() => {
-    // Simulating an API call
     const fetchProducts = async () => {
       try {
-        // Simulate API data
         const data = [
           {
             id: 1,
@@ -101,37 +101,82 @@ export default function ProductCards() {
     router.push('/maprice')
   }
 
-  if (loading) return <div className="text-center">Loading...</div>
-  if (error) return <div className="text-center text-red-500">{error}</div>
+  if (loading) return (
+    <div className="flex justify-center items-center h-screen bg-black">
+      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#FFF5CD]"></div>
+    </div>
+  )
+  
+  if (error) return (
+    <div className="flex justify-center items-center h-screen bg-black">
+      <div className="text-center text-red-500 text-2xl font-bold">{error}</div>
+    </div>
+  )
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-black overflow-hidden">
-      <h1 className="text-5xl font-bold mb-10 text-center text-[#FFF5CD]">Our Products</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map(product => (
-          <div 
-            key={product.id} 
-            className="bg-[#313131] hover:bg-[#212121] text-[#FFF5CD] rounded-lg shadow-md overflow-hidden transition duration-200 ease-in-out"
+    <div className="min-h-screen bg-black text-[#FFF5CD] overflow-hidden">
+      <div className="container mx-auto px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FFF5CD] to-[#FFD700]">
+            Our Mobile App Solutions
+          </h1>
+          <p className="text-xl text-[#FFF5CD] max-w-2xl mx-auto">
+            Discover the perfect mobile app solution for your business. From food delivery to social media, we've got you covered.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[#313131] rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+            >
+              <div className="relative h-48">
+                <Image 
+                  src={product.image} 
+                  alt={product.title} 
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-300 transform hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <h2 className="text-2xl font-bold text-[#FFF5CD] text-center px-4">{product.title}</h2>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-[#FFF5CD] mb-4">{product.description}</p>
+                <button 
+                  className="w-full bg-gradient-to-r from-[#FFF5CD] to-[#FFD700] text-black font-bold py-2 px-4 rounded-full hover:from-[#FFD700] hover:to-[#FFF5CD] transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FFF5CD] focus:ring-opacity-50"
+                  onClick={handleViewPrice}
+                >
+                  View Our Price
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <button
+            className="bg-[#FFF5CD] text-black font-bold text-xl py-3 px-8 rounded-full hover:bg-[#FFD700] transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FFF5CD] focus:ring-opacity-50"
+            onClick={() => router.push('/contact')}
           >
-            <Image 
-              src={product.image} 
-              alt={product.title} 
-              width={300} 
-              height={200} 
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">{product.title}</h2>
-              <p className="text-gray-300 mb-4">{product.description}</p>
-              <button 
-                className="bg-[#4A4947] hover:bg-[#31312f] text-white px-4 py-2 rounded transition-colors"
-                onClick={handleViewPrice}
-              >
-                View Our Price
-              </button>
-            </div>
-          </div>
-        ))}
+            Get Started Today
+          </button>
+        </motion.div>
       </div>
     </div>
   )

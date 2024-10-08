@@ -1,11 +1,38 @@
+'use client'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function AppDevelopmentCost() {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  }
+
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
   return (
-    <div className="container mx-auto px-4 py-8 text-[#FFF0D1] bg-zinc-900">
-      <h1 className="text-3xl font-bold mb-6 text-center">App Development Cost and Information</h1>
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      className="container mx-auto px-4 py-8 text-[#FFF0D1] bg-zinc-900"
+    >
+      <motion.h1 
+        variants={fadeIn}
+        className="text-3xl font-bold my-14 text-center"
+      >
+        App Development Cost and Information
+      </motion.h1>
       
-      <div className="mb-8">
+      <motion.div variants={fadeIn} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Common App Types</h2>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse border border-gray-300">
@@ -16,38 +43,38 @@ export default function AppDevelopmentCost() {
                 <th className="border border-gray-300 p-2 text-black">Typical Features</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <motion.tbody variants={staggerChildren}>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Social Media</td>
                 <td className="border border-gray-300 p-2">Platforms for connecting and sharing content</td>
                 <td className="border border-gray-300 p-2">User profiles, news feed, messaging</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">E-commerce</td>
                 <td className="border border-gray-300 p-2">Online shopping platforms</td>
                 <td className="border border-gray-300 p-2">Product catalog, shopping cart, payment integration</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Health & Fitness</td>
                 <td className="border border-gray-300 p-2">Apps for tracking health and exercise</td>
                 <td className="border border-gray-300 p-2">Activity tracking, meal planning, progress reports</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Educational</td>
                 <td className="border border-gray-300 p-2">Learning and skill development apps</td>
                 <td className="border border-gray-300 p-2">Course content, quizzes, progress tracking</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Productivity</td>
                 <td className="border border-gray-300 p-2">Tools for improving work efficiency</td>
                 <td className="border border-gray-300 p-2">Task management, note-taking, calendar integration</td>
-              </tr>
-            </tbody>
+              </motion.tr>
+            </motion.tbody>
           </table>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mb-8">
+      <motion.div variants={fadeIn} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Technology Stack Options</h2>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse border border-gray-300">
@@ -58,38 +85,38 @@ export default function AppDevelopmentCost() {
                 <th className="border border-gray-300 p-2 text-black">Cross-Platform Development</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <motion.tbody variants={staggerChildren}>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Frontend (Mobile)</td>
                 <td className="border border-gray-300 p-2">Swift (iOS), Kotlin (Android)</td>
                 <td className="border border-gray-300 p-2">React Native, Flutter</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Frontend (Web)</td>
                 <td className="border border-gray-300 p-2">React, Vue.js, Angular</td>
                 <td className="border border-gray-300 p-2">React, Vue.js, Angular</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Backend</td>
                 <td className="border border-gray-300 p-2">Node.js, Python, Ruby on Rails</td>
                 <td className="border border-gray-300 p-2">Node.js, Python, Ruby on Rails</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Database</td>
                 <td className="border border-gray-300 p-2">MongoDB, PostgreSQL, MySQL</td>
                 <td className="border border-gray-300 p-2">MongoDB, PostgreSQL, MySQL</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Cloud Services</td>
                 <td className="border border-gray-300 p-2">AWS, Google Cloud, Azure</td>
                 <td className="border border-gray-300 p-2">AWS, Google Cloud, Azure</td>
-              </tr>
-            </tbody>
+              </motion.tr>
+            </motion.tbody>
           </table>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mb-8">
+      <motion.div variants={fadeIn} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Development Phases</h2>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse border border-gray-300">
@@ -100,48 +127,48 @@ export default function AppDevelopmentCost() {
                 <th className="border border-gray-300 p-2 text-black">Description</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <motion.tbody variants={staggerChildren}>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Discovery</td>
                 <td className="border border-gray-300 p-2">1-2 weeks</td>
                 <td className="border border-gray-300 p-2">Requirements gathering, market research</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Planning</td>
                 <td className="border border-gray-300 p-2">1-2 weeks</td>
                 <td className="border border-gray-300 p-2">Project scope, timeline, and resource allocation</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Design</td>
                 <td className="border border-gray-300 p-2">2-4 weeks</td>
                 <td className="border border-gray-300 p-2">UI/UX design, prototyping, and design approval</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Development</td>
                 <td className="border border-gray-300 p-2">8-12 weeks</td>
                 <td className="border border-gray-300 p-2">Frontend and backend development, API integration</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Testing</td>
                 <td className="border border-gray-300 p-2">2-3 weeks</td>
                 <td className="border border-gray-300 p-2">Quality assurance, bug fixing, and performance optimization</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Deployment</td>
                 <td className="border border-gray-300 p-2">1-2 weeks</td>
                 <td className="border border-gray-300 p-2">App store submission, server setup, and launch</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Maintenance</td>
                 <td className="border border-gray-300 p-2">Ongoing</td>
                 <td className="border border-gray-300 p-2">Updates, bug fixes, and feature enhancements</td>
-              </tr>
-            </tbody>
+              </motion.tr>
+            </motion.tbody>
           </table>
         </div>
-      </div>
+      </motion.div>
       
-      <div className="mb-8">
+      <motion.div variants={fadeIn} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">App Development Cost Estimates</h2>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse border border-gray-300">
@@ -153,59 +180,59 @@ export default function AppDevelopmentCost() {
                 <th className="border border-gray-300 p-2 text-black">Typical Timeline</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <motion.tbody variants={staggerChildren}>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Basic</td>
                 <td className="border border-gray-300 p-2">$20,000 - $40,000</td>
                 <td className="border border-gray-300 p-2">$15,000 - $30,000</td>
                 <td className="border border-gray-300 p-2">2-3 months</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Medium</td>
                 <td className="border border-gray-300 p-2">$40,000 - $80,000</td>
                 <td className="border border-gray-300 p-2">$30,000 - $60,000</td>
                 <td className="border border-gray-300 p-2">3-6 months</td>
-              </tr>
-              <tr>
+              </motion.tr>
+              <motion.tr variants={fadeIn}>
                 <td className="border border-gray-300 p-2">Complex</td>
                 <td className="border border-gray-300 p-2">$80,000 - $150,000+</td>
                 <td className="border border-gray-300 p-2">$60,000 - $120,000+</td>
                 <td className="border border-gray-300 p-2">6-12 months</td>
-              </tr>
-            </tbody>
+              </motion.tr>
+            </motion.tbody>
           </table>
         </div>
-        <p className="mt-4 text-sm text-gray-600">Note: These are estimated ranges and actual costs may vary based on specific requirements, features, and development team rates.</p>
-      </div>
+        <motion.p variants={fadeIn} className="mt-4 text-sm text-gray-600">Note: These are estimated ranges and actual costs may vary based on specific requirements, features, and development team rates.</motion.p>
+      </motion.div>
       
-      <div className="mb-8">
+      <motion.div variants={fadeIn} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Factors Affecting App Development Cost</h2>
-        <ul className="list-disc list-inside space-y-2">
-          <li>App complexity and number of features</li>
-          <li>Design requirements (basic UI vs. custom animations)</li>
-          <li>Platform choice (iOS, Android, Web, or cross-platform)</li>
-          <li>Backend infrastructure and API integrations</li>
-          <li>Third-party service integrations</li>
-          <li>Security requirements</li>
-          <li>Scalability needs</li>
-          <li>Maintenance and support plans</li>
-        </ul>
-      </div>
+        <motion.ul variants={staggerChildren} className="list-disc list-inside space-y-2">
+          <motion.li variants={fadeIn}>App complexity and number of features</motion.li>
+          <motion.li variants={fadeIn}>Design requirements (basic UI vs. custom animations)</motion.li>
+          <motion.li variants={fadeIn}>Platform choice (iOS, Android, Web, or cross-platform)</motion.li>
+          <motion.li variants={fadeIn}>Backend infrastructure and API integrations</motion.li>
+          <motion.li variants={fadeIn}>Third-party service integrations</motion.li>
+          <motion.li variants={fadeIn}>Security requirements</motion.li>
+          <motion.li variants={fadeIn}>Scalability needs</motion.li>
+          <motion.li variants={fadeIn}>Maintenance and support plans</motion.li>
+        </motion.ul>
+      </motion.div>
       
-      <div className="mb-8">
+      <motion.div variants={fadeIn} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-        <p className="mb-2">Phone: +1 (123) 456-7890</p>
-        <p className="mb-2">Email: info@appdevelopment.com</p>
-      </div>
+        <motion.p variants={fadeIn} className="mb-2">Phone: +1 (123) 456-7890</motion.p>
+        <motion.p variants={fadeIn} className="mb-2">Email: info@appdevelopment.com</motion.p>
+      </motion.div>
       
-      <div className="flex justify-center space-x-4">
-        <Link href="/hire-developer" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+      <motion.div variants={fadeIn} className="flex justify-center space-x-4">
+        <Link href="/hire-developer" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
           Hire a Developer
         </Link>
-        <Link href="/contact-us" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+        <Link href="/contact-us" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
           Contact Us
         </Link>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }

@@ -70,7 +70,7 @@ const ServiceSlider = () => {
       >
         {serviceData.map((item, index) => (
           <SwiperSlide key={index}>
-            <Link href={item.link}>
+            <Link href={item.link} passHref>
               <div 
                 className="bg-[#313131] h-max text-[#FFF0D1] rounded-lg px-6 py-8 flex flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[#212121] transition-all duration-300"
               >
@@ -83,7 +83,7 @@ const ServiceSlider = () => {
                 {/* Title & Description */}
                 <div className="mb-8">
                   <div className="mb-2 text-lg text-[#FFF0D1] font-bold">{item.title}</div>
-                  <p className="max-w-[350px] text-[10px] leading-normal text-black hover:text-[#FFF0D1] transition-all duration-300">
+                  <p className="max-w-[350px] text-[10px] leading-normal text-[#FFF0D1] group-hover:text-[#FFF0D1] transition-all duration-300">
                     {item.description}
                   </p>
                 </div>
