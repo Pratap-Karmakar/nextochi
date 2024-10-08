@@ -172,7 +172,7 @@ export default function EnhancedProductCards() {
         >
           <button
             className="bg-[#FFF5CD] text-black font-bold text-xl py-3 px-8 rounded-full hover:bg-[#FFD700] transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FFF5CD] focus:ring-opacity-50"
-            onClick={() => router.push('/contact')}
+            onClick={handleViewPrice}
           >
             Get Started Today
           </button>
