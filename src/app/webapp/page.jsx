@@ -148,7 +148,7 @@ export default function EnhancedWebsiteCards() {
                   src={website.image} 
                   alt={website.title} 
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="contain"
                   className="transition-transform duration-300 transform hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
