@@ -1,9 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+'use client'
 
-// Fade-in animation helper
-const fadeIn = ({ direction = "up", delay = 0 },) => ({
+import React from "react"
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+
+const fadeIn = ({ direction = "up", delay = 0 }) => ({
   hidden: {
     opacity: 0,
     x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
@@ -14,88 +15,92 @@ const fadeIn = ({ direction = "up", delay = 0 },) => ({
     x: 0,
     y: 0,
     transition: {
-      delay: delay,
-      duration: 0.6,
-      ease: "easeInOut",
+      type: "spring",
+      damping: 15,
+      stiffness: 100,
+      delay,
+      duration: 0.8,
     },
   },
-});
+})
 
-// Line animation for purple line
 const lineVariants = {
   hidden: { width: "0%" },
   visible: { width: "100%" },
-};
+}
 
-const About = () => {
-  const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger animation only once
-    threshold: 0.3, // Trigger when 30% of the element is in view
-  });
+export default function About() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  })
 
   return (
-    <div className="relative bg-[#FFF5CD] min-h-[100vh] sm:min-h-full text-zinc-900 w-full py-10 md:py-16 lg:py-20">
-      {/* Sticky scroll trigger section */}
-      <div className="absolute top-0 w-full h-[200vh] bg-transparent" />
+    <div className="relative bg-gradient-to-b from-[#FFF5CD] to-[#FFE5A3] min-h-screen w-full py-16 md:py-24 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] opacity-5 bg-repeat" />
 
       <div
         ref={ref}
-        className="flex flex-col md:flex-row justify-center items-center w-full min-h-[80vh] px-4 sm:px-6 md:px-12 lg:px-20"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-12"
       >
-        {/* First Block: Text coming from the top */}
         <motion.div
           initial="hidden"
-          animate={inView ? "show" : "hidden"} // animation based on visibility
-          variants={fadeIn({ direction: "up" })} // fade in from 'up' direction
-          className="w-full md:w-1/2 flex flex-col items-start text-left py-4 px-4 sm:px-6 md:px-8"
+          animate={inView ? "show" : "hidden"}
+          variants={fadeIn({ direction: "up" })}
+          className="w-full lg:w-1/2 space-y-6"
         >
-          <h2 className="bg-clip-text text-zinc-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans py-4 relative z-20 font-bold tracking-tight uppercase">
-            Welcome to <br />
-            <span className="text-[#FF8343]">NAIYO24 PRIVATE LIMITED</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 leading-tight">
+            Welcome to{" "}
+            <span className="text-[#FF8343] block mt-2">NAIYO24 PRIVATE LIMITED</span>
           </h2>
-        </motion.div>
-
-        {/* Second Block: Text coming from the left */}
-        <div className="w-full md:w-1/2 flex flex-col items-start text-left py-4 px-4 sm:px-6 md:px-8">
           <motion.div
             initial="hidden"
-            animate={inView ? "show" : "hidden"}
-            variants={fadeIn({ direction: "left", delay: 0.2 })} // fade in from 'left' with delay
-          >
-            <h2 className="text-[#664343] bg-clip-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans py-4 relative z-20 font-bold tracking-tight">
-              Innovating Your Digital Presence
-            </h2>
+            animate={inView ? "visible" : "hidden"}
+            variants={lineVariants}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="h-1 bg-[#FF8343] w-24"
+          />
+        </motion.div>
 
-            {/* Animated Purple Line */}
-            <motion.div
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              variants={lineVariants}
-              transition={{ duration: 0.6, ease: "easeInOut" }} // smooth transition for line animation
-              className="h-1 bg-[#664343] mt-2"
-            />
-          </motion.div>
-
-          {/* Paragraph text coming from the right */}
-          <motion.p
+        <motion.div
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          variants={fadeIn({ direction: "left", delay: 0.2 })}
+          className="w-full lg:w-1/2 space-y-8"
+        >
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#664343]">
+            Innovating Your Digital Presence
+          </h3>
+          <motion.div
             initial="hidden"
-            animate={inView ? "show" : "hidden"}
-            variants={fadeIn({ direction: "right", delay: 0.4 })} // fade in from 'right' with delay
-            className="w-full text-sm sm:text-base md:text-lg lg:text-xl text-zinc-500 mt-4"
+            animate={inView ? "visible" : "hidden"}
+            variants={lineVariants}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="h-1 bg-[#664343] w-24"
+          />
+          <motion.p
+            variants={fadeIn({ direction: "right", delay: 0.4 })}
+            className="text-lg sm:text-xl text-zinc-700 leading-relaxed"
           >
-            At NAIYO24 PRIVATE LIMITED, we&apos;re committed to transforming your
-            digital dreams into reality. As a leading provider of online
-            application and website development services, our mission is to
-            deliver cutting-edge solutions that propel your business forward in
-            the digital world.
+            At NAIYO24 PRIVATE LIMITED, we're committed to transforming your digital dreams into reality. As a leading
+            provider of online application and website development services, our mission is to deliver cutting-edge
+            solutions that propel your business forward in the digital world.
           </motion.p>
-        </div>
+          <motion.button
+            variants={fadeIn({ direction: "up", delay: 0.6 })}
+            className="bg-[#FF8343] text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-[#E66A2C] hover:shadow-lg transform hover:-translate-y-1"
+          >
+            Learn More
+          </motion.button>
+        </motion.div>
       </div>
 
-      {/* Line under all content */}
-      <div className='bg-zinc-900 w-full h-[1px] mt-4 sm:mt-6 md:mt-8 lg:mt-9'/>
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={inView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+        transition={{ delay: 0.8, duration: 0.8 }}
+        className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#664343] via-[#FF8343] to-[#664343]"
+      />
     </div>
-  );
-};
-
-export default About;
+  )
+}
