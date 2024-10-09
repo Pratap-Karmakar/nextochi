@@ -7,7 +7,7 @@ const TeamData = () => {
   const isInView = useInView(ref, { once: false }); // Tracks visibility
 
   return (
-    <div className='py-10 md:py-12 lg:py-12 xl:py-12 bg-[#FFF4CD]'>
+    <div className='py-10 md:py-12 lg:py-12 xl:py-12 h-screen bg-[#FFF4CD]'>
       <div
         className="h-auto md:h-screen md:pt-10 md:pb-10 lg:pt-10 lg:pb-10 xl:pt-24 xl:pb-24 bg-[#FFF4CD] text-[#FFF0D1] py-16 md:py-32 flex items-center justify-center"
         ref={ref}
@@ -34,7 +34,7 @@ const TeamData = () => {
             </motion.span>
           </motion.h2>
 
-          <div className="text-zinc-900 text-sm md:text-lg lg:text-xl xl:text-xl text-center md:text-left">
+          <div className="text-zinc-900 text-sm md:text-lg lg:text-xl xl:text-xl text-left md:text-left">
             We founded Naiyo24 with the belief that a powerful presentation can spark interest and drive business outcomes more effectively than words alone. Our mission is to help you captivate colleagues and clients by crafting presentations that make a lasting impact.
           </div>
 

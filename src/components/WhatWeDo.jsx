@@ -42,7 +42,10 @@ const WhatWeDo = () => {
   const isInView = useInView(ref, { once: false });
 
   return (
-    <div className="h-full bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16" ref={ref}>
+    <div
+      className="h-full bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16"
+      ref={ref}
+    >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-8 items-center">
           <motion.div
@@ -73,7 +76,10 @@ const WhatWeDo = () => {
               exit="exit"
               className="text-sm text-[#FFF0D1] md:text-base mb-4 max-w-[400px] mx-auto mt-6 lg:mt-10 lg:mx-0"
             >
-              NAIYO24 PRIVATE LIMITED specializes in crafting innovative web and mobile solutions tailored to your business. We're committed to turning your digital ideas into reality with cutting-edge technology and expert services.
+              NAIYO24 PRIVATE LIMITED specializes in crafting innovative web and
+              mobile solutions tailored to your business. We're committed to
+              turning your digital ideas into reality with cutting-edge
+              technology and expert services.
             </motion.p>
           </div>
         </div>

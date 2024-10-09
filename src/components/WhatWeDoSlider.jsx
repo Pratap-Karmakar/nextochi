@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react';
 import Link from 'next/link';
 import { RxCrop, RxPencil2, RxDesktop, RxReader, RxRocket, RxArrowTopRight } from "react-icons/rx";
@@ -45,20 +43,20 @@ const serviceData = [
 
 const ServiceSlider = () => {
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center bg-zinc-900 py-12 md:py-16 lg:py-24">
       <Swiper
         breakpoints={{
           340: {
             slidesPerView: 1,
-            spaceBetween: 15,
+            spaceBetween: 20,
           },
           700: {
             slidesPerView: 2,
-            spaceBetween: 15,
+            spaceBetween: 20,
           },
-          1100: {
+          1024: {
             slidesPerView: 3,
-            spaceBetween: 15,
+            spaceBetween: 20,
           },
         }}
         freeMode={true}
@@ -74,21 +72,14 @@ const ServiceSlider = () => {
               <div 
                 className="bg-[#313131] h-max text-[#FFF0D1] rounded-lg px-6 py-8 flex flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[#212121] transition-all duration-300"
               >
-                {/* Purple line */}
                 <div className="h-1 w-full bg-[#FFF0D1] mb-4 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-
-                {/* Icon */}
                 <div className="text-[#FFF0D1] mb-4">{item.icon}</div>
-
-                {/* Title & Description */}
                 <div className="mb-8">
                   <div className="mb-2 text-lg text-[#FFF0D1] font-bold">{item.title}</div>
-                  <p className="max-w-[350px] text-[10px] leading-normal text-[#FFF0D1] group-hover:text-[#FFF0D1] transition-all duration-300">
+                  <p className="max-w-[350px] text-sm leading-normal text-[#FFF0D1]">
                     {item.description}
                   </p>
                 </div>
-
-                {/* Arrow */}
                 <div className="text-3xl">
                   <RxArrowTopRight className="text-[#FFF0D1] group-hover:rotate-45 group-hover:text-accent transition-all duration-300" />
                 </div>
