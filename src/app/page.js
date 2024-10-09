@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -9,67 +9,55 @@ import Navbar from "@/components/Navbar";
 import TeamData from "@/components/TeamData";
 import WhatWeDo from "@/components/WhatWeDo";
 import { motion, useScroll } from "framer-motion";
-import Lenis from "lenis";
-import { useEffect, useRef } from "react";
-
+import { useRef } from "react";
 
 export default function Home() {
-
   const container = useRef();
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
 
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, []);
-
-
   return (
     <div>
       <div ref={container} className="relative w-full bg-zinc-900 text-[#FAF7F0]">
-      <Navbar />
-      
-      {/* LandingPage with sticky behavior */}
-      <section className=" h-screen sticky top-0">
-        <LandingPage scrollYProgress={scrollYProgress} />
-      </section>
+        <Navbar />
 
-      {/* Marquee with no rotation */}
-      <section className=" h-screen sticky top-0">
-        <Marquee />
-      </section>
+        {/* LandingPage with sticky behavior */}
+        <section className="h-screen sticky top-0">
+          <LandingPage scrollYProgress={scrollYProgress} />
+        </section>
 
-      {/* Other sections */}
-      <section className=" h-screen sticky top-0">
-        <About />
-      </section>
+        {/* Marquee with no rotation */}
+        <section className="h-screen sticky top-0">
+          <Marquee />
+        </section>
 
-      {/* Featured section taking full width */}
-      {/* <section className=" h-screen sticky top-0">
-        <Featured />
-      </section> */}
+        {/* About section */}
+        <section className="h-screen sticky top-0">
+          <About />
+        </section>
 
-      <section className=" h-screen sticky top-0">
-        <WhatWeDo />
-      </section>
+        {/* WhatWeDo section */}
+        <section className="h-screen sticky top-0">
+          <WhatWeDo />
+        </section>
 
-      <section className=" h-screen sticky top-0">
-        <TeamData />
-      </section>
-      <section className=" h-screen sticky top-0">
-        <Contact />
-      </section>
-      <section className=" h-screen sticky top-0">
-      <Footer  scrollYProgress={scrollYProgress}/>
-      </section>
-    </div>
+        {/* TeamData section */}
+        <section className="h-screen sticky top-0">
+          <TeamData />
+        </section>
+
+        {/* Contact section */}
+        <section className="h-screen sticky top-0">
+          <Contact />
+        </section>
+
+        {/* Footer section */}
+        <section className="h-screen sticky top-0">
+          <Footer scrollYProgress={scrollYProgress} />
+        </section>
+      </div>
     </div>
   );
 }
