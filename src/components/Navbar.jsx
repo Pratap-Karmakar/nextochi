@@ -4,6 +4,7 @@ import { useState } from "react"
 import { IoMenu, IoClose } from "react-icons/io5"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import logo from '../assets/images/logo.jpeg'
 
 export default function Navbar() {
@@ -38,6 +39,31 @@ export default function Navbar() {
     },
   }
 
+  const renderNavLink = (item, index) => {
+    if (item === "About Us") {
+      return (
+        <Link href="/about" key={index} passHref legacyBehavior>
+          <motion.a
+            className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300"
+            variants={itemVariants}
+          >
+            {item}
+          </motion.a>
+        </Link>
+      )
+    }
+    return (
+      <motion.a
+        href={`#${item.toLowerCase().replace(' ', '-')}`}
+        className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300"
+        key={index}
+        variants={itemVariants}
+      >
+        {item}
+      </motion.a>
+    )
+  }
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-zinc-900 to-zinc-800 text-white font-['Neue Montreal'] shadow-lg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,16 +85,7 @@ export default function Navbar() {
             initial="hidden"
             animate="visible"
           >
-            {navLinks.map((item, index) => (
-              <motion.a
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300"
-                key={index}
-                variants={itemVariants}
-              >
-                {item}
-              </motion.a>
-            ))}
+            {navLinks.map((item, index) => renderNavLink(item, index))}
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -114,17 +131,31 @@ export default function Navbar() {
               className="flex flex-col items-center"
             >
               {navLinks.map((item, index) => (
-                <motion.a
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
-                  className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
-                  key={index}
-                  onClick={toggleMobileMenu}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item}
-                </motion.a>
+                item === "About Us" ? (
+                  <Link href="/about" key={index} passHref legacyBehavior>
+                    <motion.a
+                      className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
+                      onClick={toggleMobileMenu}
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {item}
+                    </motion.a>
+                  </Link>
+                ) : (
+                  <motion.a
+                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                    className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
+                    key={index}
+                    onClick={toggleMobileMenu}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item}
+                  </motion.a>
+                )
               ))}
             </motion.div>
           </motion.div>
