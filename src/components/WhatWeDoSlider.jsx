@@ -76,7 +76,7 @@ const ServiceSlider = () => {
                 <div className="text-[#FFF0D1] mb-4">{item.icon}</div>
                 <div className="mb-8">
                   <div className="mb-2 text-lg text-[#FFF0D1] font-bold">{item.title}</div>
-                  <p className="max-w-[350px] text-sm leading-normal text-[#FFF0D1]">
+                  <p className="max-w-[350px] text-sm leading-normal text-zinc-800 duration-500 transition-all hover:text-[#FFF0D1]">
                     {item.description}
                   </p>
                 </div>

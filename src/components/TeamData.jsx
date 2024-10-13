@@ -6,6 +6,18 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const teamData = [
   {
+    quote: "Ongoing Projects - Naiyo24, Luriana, Nariii",
+    name: "Srijani Ghosh",
+    title: "BDM SEO and Marketing",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Niayo24, Nariii",
+    name: "Sambik Karmakar",
+    title: "IT Full Stack Graphic Designer",
+    isFeaturted: true,
+  },
+  {
     quote: "Ongoing Projects - Nariii",
     name: "Aaryan Sinha Roy",
     title: "API, Server-side programming and App Deployment",
@@ -42,6 +54,12 @@ const teamData = [
     isFeaturted: true,
   },
   {
+    quote: "Intern",
+    name: "Samadrita Banarjee",
+    title: "IT Frontend Developer",
+    isFeaturted: true,
+  },
+  {
     quote: "Ongoing Projects - Naiyo24, Luriana, Nariii",
     name: "Tamashree Halder",
     title: "BDM, SEO And Marketing",
@@ -53,7 +71,7 @@ const teamData = [
     title: "Full Stack Developer",
     isFeaturted: true,
   },
-]
+];
 
 export default function TeamSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
