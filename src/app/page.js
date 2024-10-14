@@ -1,16 +1,16 @@
 'use client'
-
 import { useRef } from 'react'
 import { useScroll } from 'framer-motion'
+import dynamic from 'next/dynamic'
 
-import About from '@/components/About'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
-import LandingPage from '@/components/LandingPage'
-import Marquee from '@/components/Marquee'
-import Navbar from '@/components/Navbar'
-import TeamData from '@/components/TeamData'
-import WhatWeDo from '@/components/WhatWeDo'
+const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: false })
+const LandingPage = dynamic(() => import('@/components/LandingPage'), { ssr: false })
+const Marquee = dynamic(() => import('@/components/Marquee'), { ssr: false })
+const About = dynamic(() => import('@/components/About'), { ssr: false })
+const WhatWeDo = dynamic(() => import('@/components/WhatWeDo'), { ssr: false })
+const TeamData = dynamic(() => import('@/components/TeamData'), { ssr: false })
+const Contact = dynamic(() => import('@/components/Contact'), { ssr: false })
+const Footer = dynamic(() => import('@/components/Footer'), { ssr: false })
 
 export default function Home() {
   const containerRef = useRef(null)
