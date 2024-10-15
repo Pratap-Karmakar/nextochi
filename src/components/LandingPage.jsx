@@ -81,7 +81,7 @@ export default function LandingPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
             >
-              Naiyo24, Innovating Tomorrow, <span className="text-purple-400">Today.</span>
+              Naiyo24 pvt ltd. Innovating Tomorrow, <span className="text-purple-400">Today.</span>
             </motion.p>
             <motion.p
               className="text-sm text-gray-300 text-center md:text-left"

@@ -32,7 +32,7 @@ export default function Marquee() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                We are Naiyo24
+                We are Naiyo24 pvt ltd.
               </motion.span>
             </MarqueeItem>
           ))}
@@ -46,7 +46,7 @@ export default function Marquee() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 + 0.4 }}
               >
-                We are Naiyo24
+                We are Naiyo24 pvt ltd.
               </motion.span>
             </MarqueeItem>
           ))}

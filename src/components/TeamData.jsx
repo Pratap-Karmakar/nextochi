@@ -137,10 +137,10 @@ export default function Component() {
         className="max-w-4xl w-full text-center mb-12 relative z-10"
       >
         <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 to-yellow-800">
-          Our Team at Naiyo24
+          Our Team at Naiyo24 pvt ltd.
         </h2>
         <p className="text-lg md:text-xl text-gray-800 bg-white bg-opacity-50 p-4 rounded-lg shadow-lg">
-          We founded Naiyo24 with the belief that a powerful presentation can spark interest and drive business outcomes more effectively than words alone. Our mission is to help you captivate colleagues and clients by crafting presentations that make a lasting impact.
+          We founded Naiyo24 pvt ltd. with the belief that a powerful presentation can spark interest and drive business outcomes more effectively than words alone. Our mission is to help you captivate colleagues and clients by crafting presentations that make a lasting impact.
         </p>
       </motion.div>
 
