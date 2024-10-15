@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -72,7 +72,6 @@ const teamData = [
     isFeaturted: true,
   },
 ]
-
 const FloatingShape = ({ animate }) => (
   <motion.div
     className="absolute rounded-full bg-gradient-to-r from-yellow-200 to-yellow-400 opacity-20"
@@ -90,8 +89,10 @@ const FloatingShape = ({ animate }) => (
   />
 )
 
-export default function EnhancedTeamSlider() {
+export default function Component() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  const timerRef = useRef(null)
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % teamData.length)
@@ -102,12 +103,14 @@ export default function EnhancedTeamSlider() {
   }
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide()
-    }, 5000)
+    if (!isHovered) {
+      timerRef.current = setInterval(() => {
+        nextSlide()
+      }, 5000)
+    }
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timerRef.current)
+  }, [isHovered])
 
   const fadeVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -141,7 +144,11 @@ export default function EnhancedTeamSlider() {
         </p>
       </motion.div>
 
-      <div className="relative w-full max-w-4xl z-10">
+      <div 
+        className="relative w-full max-w-4xl z-10"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
