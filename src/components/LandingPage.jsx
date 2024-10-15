@@ -3,6 +3,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { IoArrowForwardCircleOutline } from "react-icons/io5"
+import Link from "next/link"
 
 export default function LandingPage() {
   return (
@@ -90,17 +91,19 @@ export default function LandingPage() {
             >
               Building the Future, One Line of Code at a Time.
             </motion.p>
-            <motion.button
-              className="group py-3 px-8 bg-gradient-to-r from-purple-500 to-yellow-500 rounded-full cursor-pointer flex items-center gap-2 transition-all duration-300 hover:from-purple-600 hover:to-yellow-600 hover:scale-105 shadow-lg hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="font-semibold">Start the Project</span>
-              <IoArrowForwardCircleOutline className="text-2xl transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
-            </motion.button>
+            <Link href="/contact" passHref>
+              <motion.button
+                className="group py-3 px-8 bg-gradient-to-r from-purple-500 to-yellow-500 rounded-full cursor-pointer flex items-center gap-2 transition-all duration-300 hover:from-purple-600 hover:to-yellow-600 hover:scale-105 shadow-lg hover:shadow-xl"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="font-semibold">Start the Project</span>
+                <IoArrowForwardCircleOutline className="text-2xl transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+              </motion.button>
+            </Link>
           </div>
         </div>
       </footer>

@@ -61,7 +61,7 @@ export default function EnhancedAbout() {
   }, [controls, inView])
 
   return (
-    <div className="relative  bg-white min-h-screen w-full py-16 md:py-24 lg:py-32 overflow-hidden">
+    <div className="relative bg-white min-h-screen w-full py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] opacity-5 bg-repeat" />
 
       {/* Animated Background */}

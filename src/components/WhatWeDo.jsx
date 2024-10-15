@@ -43,7 +43,7 @@ const WhatWeDo = () => {
 
   return (
     <div
-      className="h-full bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16"
+      className="h-full  bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16"
       ref={ref}
     >
       <div className="container mx-auto">
