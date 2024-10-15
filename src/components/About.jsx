@@ -3,6 +3,7 @@
 import React from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { useRouter } from 'next/navigation'
 
 const fadeIn = ({ direction = "up", delay = 0 }) => ({
   hidden: {
@@ -53,12 +54,17 @@ export default function EnhancedAbout() {
   })
 
   const controls = useAnimation()
+  const router = useRouter()
 
   React.useEffect(() => {
     if (inView) {
       controls.start("show")
     }
   }, [controls, inView])
+
+  const handleLearnMore = () => {
+    router.push('/about')
+  }
 
   return (
     <div className="relative bg-white min-h-screen w-full py-16 md:py-24 lg:py-32 overflow-hidden">
@@ -130,6 +136,7 @@ export default function EnhancedAbout() {
             whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
             whileTap={{ scale: 0.95 }}
             className="bg-gradient-to-r from-[#FF8343] to-[#664343] text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 hover:from-[#E66A2C] hover:to-[#553232] transform hover:-translate-y-1"
+            onClick={handleLearnMore}
           >
             Learn More
           </motion.button>
