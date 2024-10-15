@@ -2,8 +2,10 @@
 
 import React, { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 
 export default function Component() {
+  const router = useRouter()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
   const { scrollYProgress } = useScroll({
@@ -36,6 +38,10 @@ export default function Component() {
         damping: 12,
       },
     },
+  }
+
+  const handleSayHello = () => {
+    router.push('/contact')
   }
 
   return (
@@ -117,6 +123,7 @@ export default function Component() {
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleSayHello}
           >
             Say Hello!
           </motion.button>
