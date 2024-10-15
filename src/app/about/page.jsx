@@ -5,6 +5,7 @@ import { FaLightbulb, FaHandshake, FaPuzzlePiece, FaTrophy } from "react-icons/f
 import { MdSecurity, MdCloud } from "react-icons/md"
 import { RiTeamFill } from "react-icons/ri"
 import { useRef } from "react"
+import Link from 'next/link'
 
 export default function AboutUs() {
   const containerRef = useRef(null)
@@ -25,10 +26,7 @@ export default function AboutUs() {
   return (
     <motion.div
       ref={containerRef}
-      className="min-h-screen p-8 relative overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"
-      }}
+      className="min-h-screen p-8 relative overflow-hidden bg-zinc-900"
     >
       {/* Floating shapes */}
       {[...Array(20)].map((_, i) => (
@@ -57,7 +55,7 @@ export default function AboutUs() {
 
       <motion.div style={{ opacity, scale }} className="relative z-10">
         <motion.h1
-          className="text-6xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600"
+          className="text-6xl font-bold mb-12 text-center text-[#f7eeac]"
           initial="hidden"
           animate="visible"
           variants={{
@@ -159,13 +157,15 @@ export default function AboutUs() {
           <p className="text-xl mb-8 text-[#FAF7F0] leading-relaxed">
             Ready to explore how Naiyo24 can help you achieve your technology goals? Contact us today to discover how our expertise can shape your IT future.
           </p>
-          <motion.button
-            className="bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-900 px-8 py-4 rounded-full font-semibold text-xl shadow-lg"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 170, 0, 0.5)" }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Us
-          </motion.button>
+          <Link href="/contact">
+            <motion.button
+              className="bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-900 px-8 py-4 rounded-full font-semibold text-xl shadow-lg"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 170, 0, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Contact Us
+            </motion.button>
+          </Link>
         </motion.section>
       </motion.div>
     </motion.div>

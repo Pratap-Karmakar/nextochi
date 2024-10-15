@@ -115,7 +115,7 @@ export default function EnhancedTeamSlider() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-[#FFF5CD] to-[#FFE787] min-h-screen flex flex-col justify-center items-center p-4 md:p-8 relative overflow-hidden">
+    <div className="bg-white min-h-screen flex flex-col justify-center items-center p-4 md:p-8 relative overflow-hidden">
       {[...Array(15)].map((_, index) => (
         <FloatingShape
           key={index}

@@ -1,6 +1,8 @@
+
+
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { IoMenu, IoClose } from "react-icons/io5"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
@@ -9,7 +11,23 @@ import logo from '../assets/images/logo.jpeg'
 
 export default function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const navLinks = ["Services", "Our Work", "About Us", "Insights", "Contact"]
+  const [isVisible, setIsVisible] = useState(true)
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
+  const navLinks = ["Services", "About Us", "Contact"]
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset
+      const visible = prevScrollPos > currentScrollPos || currentScrollPos < 10
+
+      setIsVisible(visible)
+      setPrevScrollPos(currentScrollPos)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [prevScrollPos])
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen)
@@ -46,7 +64,7 @@ export default function Navbar() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 300, 
+        stiffness: 300,
         damping: 20,
       },
     },
@@ -55,9 +73,8 @@ export default function Navbar() {
   const renderNavLink = (item, index) => {
     if (item === "About Us") {
       return (
-        <Link href="/about" key={index} passHref legacyBehavior>
-          <motion.a
-            className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group"
+        <Link href="/about" key={index} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group">
+          <motion.span
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -67,25 +84,64 @@ export default function Navbar() {
               className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
               layoutId="underline"
             />
-          </motion.a>
+          </motion.span>
         </Link>
       )
     }
+
+
+    if (item === "Contact") {
+      return (
+        <Link href="/contact" key={index} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group">
+          <motion.span
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {item}
+            <motion.span
+              className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
+              layoutId="underline"
+            />
+          </motion.span>
+        </Link>
+      )
+    }
+
+
+    if (item === "Services") {
+      return (
+        <Link href="/services" key={index} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group">
+          <motion.span
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {item}
+            <motion.span
+              className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
+              layoutId="underline"
+            />
+          </motion.span>
+        </Link>
+      )
+    }
+
+    
     return (
-      <motion.a
-        href={`#${item.toLowerCase().replace(' ', '-')}`}
-        className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group"
-        key={index}
-        variants={itemVariants}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {item}
+      <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group" key={index}>
         <motion.span
-          className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
-          layoutId="underline"
-        />
-      </motion.a>
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {item}
+          <motion.span
+            className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
+            layoutId="underline"
+          />
+        </motion.span>
+      </Link>
     )
   }
 
@@ -93,7 +149,7 @@ export default function Navbar() {
     <motion.nav
       className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-zinc-900 to-zinc-800 text-white font-['Neue Montreal'] shadow-lg"
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -122,7 +178,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className={`md:hidden text-2xl focus:outline-none z-50 ${isMobileMenuOpen ? 'text-yellow-400' : ''}`}
+            className="md:hidden text-2xl focus:outline-none"
             onClick={toggleMobileMenu}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -146,7 +202,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-90 z-40 flex items-center justify-center h-screen w-full"
+            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -157,7 +213,7 @@ export default function Navbar() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="flex flex-col items-center gap-y-10"
+              className="flex flex-col items-center"
             >
               {navLinks.map((item, index) => (
                 <motion.div
@@ -167,13 +223,12 @@ export default function Navbar() {
                   whileTap={{ scale: 0.95 }}
                 >
                   {item === "About Us" ? (
-                    <Link href="/about" passHref>
-                      <motion.a
-                        className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
-                        onClick={toggleMobileMenu}
-                      >
-                        {item}
-                      </motion.a>
+                    <Link 
+                      href="/about" 
+                      className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
+                      onClick={toggleMobileMenu}
+                    >
+                      <motion.span>{item}</motion.span>
                     </Link>
                   ) : (
                     <motion.a
@@ -181,7 +236,7 @@ export default function Navbar() {
                       className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
                       onClick={toggleMobileMenu}
                     >
-                      {item}
+                      <motion.span>{item}</motion.span>
                     </motion.a>
                   )}
                 </motion.div>

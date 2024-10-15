@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
+import Link from "next/link"
 
 const Footer = () => {
   const controls = useAnimation()
@@ -59,7 +60,7 @@ const Footer = () => {
             </motion.p>
           </div>
           <motion.div className="mt-16 lg:mt-0 font-semibold text-2xl text-gray-300" variants={itemVariants}>
-            Naiyo24.
+            Naiyo24 pvt ltd.
           </motion.div>
         </motion.div>
         <motion.div className="lg:w-1/2 space-y-12" variants={itemVariants}>
@@ -67,26 +68,25 @@ const Footer = () => {
             Quick Links.
           </motion.h3>
           <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" variants={containerVariants}>
-            <LinkSection title="Social" links={["Facebook", "LinkedIn", "Twitter"]} variants={itemVariants} />
-            <LinkSection title="Company" links={["About Us", "Careers", "Contact"]} variants={itemVariants} />
-            <LinkSection title="Resources" links={["Blog", "Documentation", "Support"]} variants={itemVariants} />
+            <LinkSection
+              title="Social"
+              links={[
+                { label: "Facebook", href: "#" },
+                { label: "LinkedIn", href: "#" },
+                { label: "Twitter", href: "#" }
+              ]}
+              variants={itemVariants}
+            />
+            <LinkSection
+              title="Company"
+              links={[
+                { label: "About Us", href: "/about" },
+                { label: "Careers", href: "#" },
+                { label: "Contact", href: "/contact" }
+              ]}
+              variants={itemVariants}
+            />
           </motion.div>
-          {/* <motion.div className="mt-12" variants={itemVariants}>
-            <h4 className="text-2xl font-semibold mb-4 text-gray-100">Subscribe to our newsletter</h4>
-            <form className="flex space-x-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-grow px-4 py-2 rounded-md bg-zinc-800 border border-zinc-700 text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-purple-400"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-800"
-              >
-                Subscribe
-              </button>
-            </form>
-          </motion.div> */}
         </motion.div>
       </div>
       <motion.div
@@ -105,9 +105,9 @@ const LinkSection = ({ title, links, variants }) => (
     <ul className="space-y-2">
       {links.map((link, index) => (
         <motion.li key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <a href="#" className="text-gray-300 hover:text-purple-400 transition-colors">
-            {link}
-          </a>
+          <Link href={link.href} className="text-gray-300 hover:text-purple-400 transition-colors">
+            {link.label}
+          </Link>
         </motion.li>
       ))}
     </ul>
