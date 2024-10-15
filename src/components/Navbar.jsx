@@ -93,7 +93,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full z-50 bg-zinc-800/90 shadow-lg backdrop-blur-sm text-white font-['Neue Montreal'] "
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm text-white font-['Neue Montreal'] "
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
