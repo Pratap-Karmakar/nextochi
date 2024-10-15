@@ -1,5 +1,3 @@
-
-
 'use client'
 
 import { useState, useEffect } from "react"
@@ -14,7 +12,6 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true)
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const navLinks = ["Services", "About Us", "Contact"]
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,73 +61,22 @@ export default function Navbar() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 300,
+        stiffness: 300, 
         damping: 20,
       },
     },
   }
 
   const renderNavLink = (item, index) => {
-    if (item === "About Us") {
-      return (
-        <Link href="/about" key={index} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group">
-          <motion.span
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {item}
-            <motion.span
-              className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
-              layoutId="underline"
-            />
-          </motion.span>
-        </Link>
-      )
-    }
+    const href = item === "About Us" ? "/about" : 
+                 item === "Services" ? "/services" :
+                 item === "Contact" ? "/contact" :
+                 `#${item.toLowerCase().replace(' ', '-')}`
 
-
-    if (item === "Contact") {
-      return (
-        <Link href="/contact" key={index} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group">
-          <motion.span
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {item}
-            <motion.span
-              className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
-              layoutId="underline"
-            />
-          </motion.span>
-        </Link>
-      )
-    }
-
-
-    if (item === "Services") {
-      return (
-        <Link href="/services" key={index} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group">
-          <motion.span
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {item}
-            <motion.span
-              className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
-              layoutId="underline"
-            />
-          </motion.span>
-        </Link>
-      )
-    }
-
-    
     return (
-      <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group" key={index}>
-        <motion.span
+      <Link href={href} key={index} passHref legacyBehavior>
+        <motion.a
+          className="text-sm lg:text-base xl:text-lg capitalize font-light hover:text-yellow-400 transition-colors duration-300 relative group"
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -140,15 +86,15 @@ export default function Navbar() {
             className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"
             layoutId="underline"
           />
-        </motion.span>
+        </motion.a>
       </Link>
     )
   }
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-zinc-900 to-zinc-800 text-white font-['Neue Montreal'] shadow-lg"
-      initial={{ y: -100 }}
+      className="fixed top-0 left-0 w-full z-50 bg-zinc-800/90 shadow-lg backdrop-blur-sm text-white font-['Neue Montreal'] "
+      initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
@@ -178,7 +124,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-2xl focus:outline-none"
+            className={`md:hidden text-2xl focus:outline-none z-50 ${isMobileMenuOpen ? 'text-yellow-400' : ''}`}
             onClick={toggleMobileMenu}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -202,7 +148,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+            className="fixed inset-0 bg-black bg-opacity-90 z-40 flex items-center justify-center h-screen w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -213,7 +159,7 @@ export default function Navbar() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="flex flex-col items-center"
+              className="flex flex-col items-center gap-y-10"
             >
               {navLinks.map((item, index) => (
                 <motion.div
@@ -222,23 +168,20 @@ export default function Navbar() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {item === "About Us" ? (
-                    <Link 
-                      href="/about" 
-                      className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
-                      onClick={toggleMobileMenu}
-                    >
-                      <motion.span>{item}</motion.span>
-                    </Link>
-                  ) : (
+                  <Link 
+                    href={item === "About Us" ? "/about" : 
+                          item === "Services" ? "/services" :
+                          item === "Contact" ? "/contact" :
+                          `#${item.toLowerCase().replace(' ', '-')}`} 
+                    passHref
+                  >
                     <motion.a
-                      href={`#${item.toLowerCase().replace(' ', '-')}`}
                       className="text-2xl capitalize font-light mb-6 hover:text-yellow-400 transition-colors duration-300"
                       onClick={toggleMobileMenu}
                     >
-                      <motion.span>{item}</motion.span>
+                      {item}
                     </motion.a>
-                  )}
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>
