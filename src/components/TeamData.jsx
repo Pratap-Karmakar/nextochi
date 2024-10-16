@@ -89,7 +89,7 @@ const FloatingShape = ({ animate }) => (
   />
 )
 
-export default function Component() {
+export default function TeamData() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const timerRef = useRef(null)

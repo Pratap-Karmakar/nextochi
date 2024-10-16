@@ -85,92 +85,102 @@ const serviceData = [
 ]
 
 export default function CombinedWhatWeDo() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: false })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
 
   return (
-    <div
-      className="h-full bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16"
-      ref={ref}
-    >
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-8 items-center">
-          <motion.div
-            variants={fadeIn("up", 0.7)}
-            initial="hidden"
-            animate={isInView ? "show" : "hidden"}
-            exit="exit"
-            className="w-full xl:max-w-[65%] md:mt-12 lg:mt-16"
-          >
-            <Swiper
-              breakpoints={{
-                340: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                700: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 20,
-                },
-              }}
-              freeMode={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
-              className="w-full h-auto"
-            >
-              {serviceData.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <Link href={item.link} passHref>
-                    <div className="bg-[#313131] h-max text-[#FFF0D1] rounded-lg px-6 py-8 flex flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[#212121] transition-all duration-300">
-                      <div className="h-1 w-full bg-[#FFF0D1] mb-4 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                      <div className="text-[#FFF0D1] mb-4">{item.icon}</div>
-                      <div className="mb-8">
-                        <div className="mb-2 text-lg text-[#FFF0D1] font-bold">{item.title}</div>
-                        <p className="max-w-[350px] text-sm leading-normal text-zinc-800 duration-500 transition-all hover:text-[#FFF0D1]">
-                          {item.description}
-                        </p>
-                      </div>
-                      <div className="text-3xl">
-                        <RxArrowTopRight className="text-[#FFF0D1] group-hover:rotate-45 group-hover:text-accent transition-all duration-300" />
-                      </div>
-                    </div>
-                  </Link>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </motion.div>
-
-          <div className="flex flex-col text-center xl:w-[30vw] lg:text-left mb-12 md:mb-16">
-            <motion.h2
-              variants={fadeIn("right", 0.3)}
+    <div className="relative">
+      {/* Blurred Top Edge */}
+      <div className="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-zinc-900 to-transparent blur-3xl"></div>
+      
+      <div
+        className="h-full bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16"
+        ref={ref}
+      >
+        <div className="container mx-auto">
+          <div className="flex flex-col xl:flex-row gap-8 items-center">
+            <motion.div
+              variants={fadeIn("up", 0.7)}
               initial="hidden"
               animate={isInView ? "show" : "hidden"}
               exit="exit"
-              className="text-2xl md:text-4xl lg:text-7xl text-[#FFF0D1] font-bold inter-var text-center"
+              className="w-full xl:max-w-[65%] md:mt-12 lg:mt-16"
             >
-              What we do.
-            </motion.h2>
+              <Swiper
+                breakpoints={{
+                  340: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  700: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
+                }}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[FreeMode, Pagination]}
+                className="w-full h-auto"
+              >
+                {serviceData.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <Link href={item.link} passHref>
+                      <div className="bg-gradient-to-br from-[#2A2A2A] to-[#1A1A1A] h-[400px] text-[#FFF0D1] rounded-xl px-6 py-8 flex flex-col justify-between gap-x-6 sm:gap-x-0 group cursor-pointer hover:shadow-lg hover:shadow-[#FFF0D1]/10 transition-all duration-300">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="text-4xl text-[#FFF0D1] bg-[#313131] p-3 rounded-full">{item.icon}</div>
+                          <div className="text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <RxArrowTopRight className="text-[#FFF0D1]" />
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold mb-2 text-[#FFF0D1] group-hover:text-[#FFD700] transition-colors duration-300">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm leading-relaxed text-[#B0B0B0] group-hover:text-[#FFF0D1] transition-colors duration-300">
+                            {item.description}
+                          </p>
+                        </div>
+                        <div className="h-1 w-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] mt-4 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                      </div>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </motion.div>
 
-            <motion.p
-              variants={fadeIn("down", 0.5)}
-              initial="hidden"
-              animate={isInView ? "show" : "hidden"}
-              exit="exit"
-              className="text-sm text-[#FFF0D1] md:text-base mb-4 max-w-[400px] mx-auto mt-6 lg:mt-10 lg:mx-0"
-            >
-              NAIYO24 PRIVATE LIMITED specializes in crafting innovative web and mobile solutions
-              tailored to your business. We're committed to turning your digital ideas into reality
-              with cutting-edge technology and expert services.
-            </motion.p>
+            <div className="flex flex-col text-center xl:w-[30vw] lg:text-left mb-12 md:mb-16">
+              <motion.h2
+                variants={fadeIn("right", 0.3)}
+                initial="hidden"
+                animate={isInView ? "show" : "hidden"}
+                exit="exit"
+                className="text-2xl md:text-4xl lg:text-7xl text-[#FFF0D1] font-bold inter-var text-center"
+              >
+                What we do.
+              </motion.h2>
+
+              <motion.p
+                variants={fadeIn("down", 0.5)}
+                initial="hidden"
+                animate={isInView ? "show" : "hidden"}
+                exit="exit"
+                className="text-sm text-[#FFF0D1] md:text-base mb-4 max-w-[400px] mx-auto mt-6 lg:mt-10 lg:mx-0"
+              >
+                NAIYO24 PRIVATE LIMITED specializes in crafting innovative web and mobile solutions
+                tailored to your business. We're committed to turning your digital ideas into reality
+                with cutting-edge technology and expert services.
+              </motion.p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
+
