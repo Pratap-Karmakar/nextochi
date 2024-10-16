@@ -31,19 +31,19 @@ export default function Home() {
           <Marquee />
         </section>
 
-        <section className=" sticky top-0 h-screen md:h-[80vh] lg:h-[80vh] xl:h-[80vh]">
+        <section className=" sticky top-0 h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh]">
           <About />
         </section>
 
-        <section className="h-screen md:h-[80vh] lg:h-[80vh] xl:h-[80vh] sticky top-0" >
+        <section className="h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh] sticky top-0" >
           <WhatWeDo />
         </section>
 
-        <section className="h-screen md:h-[80vh] lg:h-[80vh] xl:h-[80vh] sticky top-0">
+        <section className="h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh] sticky top-0">
           <TeamData />
         </section>
 
-        <section className="h-screen md:h-[80vh] lg:h-[80vh] xl:h-[80vh] sticky top-0">
+        <section className="h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh] sticky top-0">
           <Contact />
         </section>
 
