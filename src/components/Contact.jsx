@@ -100,15 +100,15 @@ export default function Component() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            Your <span className="uppercase font-extrabold relative text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500">
-              Adventure
+            Ready <span className="uppercase font-extrabold relative text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500">
+              To Start The
               <motion.span
                 className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-blue-500"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.5 }}
               />
-            </span> Awaits
+            </span> Project
           </motion.p>
         </motion.div>
       </div>
@@ -139,7 +139,7 @@ export default function Component() {
             whileTap={{ scale: 0.95 }}
             onClick={handleExplore}
           >
-            Launch Mission
+            Say Hello!
           </motion.button>
         </motion.div>
       </motion.div>

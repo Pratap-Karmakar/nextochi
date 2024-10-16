@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React from "react"
 import { motion, useAnimation } from "framer-motion"
@@ -8,12 +8,10 @@ import { useRouter } from 'next/navigation'
 const fadeIn = ({ direction = "up", delay = 0 }) => ({
   hidden: {
     opacity: 0,
-    x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
     y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
   },
   show: {
     opacity: 1,
-    x: 0,
     y: 0,
     transition: {
       type: "spring",
@@ -47,7 +45,7 @@ const FloatingShape = ({ animate }) => (
   />
 )
 
-export default function EnhancedAbout() {
+export default function Component() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -67,7 +65,7 @@ export default function EnhancedAbout() {
   }
 
   return (
-    <div className="relative bg-white w-full py-16 md:py-24 lg:py-32 overflow-hidden h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh]" >
+    <div className="relative bg-white w-full h-screen overflow-hidden flex items-center justify-center">
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] opacity-5 bg-repeat" />
 
       {/* Animated Background */}
@@ -84,13 +82,13 @@ export default function EnhancedAbout() {
 
       <div
         ref={ref}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-12 relative z-10 h-full"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center space-y-12 relative z-10 text-center"
       >
         <motion.div
           initial="hidden"
           animate={controls}
           variants={fadeIn({ direction: "up" })}
-          className="w-full lg:w-1/2 space-y-6"
+          className="space-y-6"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 leading-tight">
             Welcome to{" "}
@@ -103,15 +101,15 @@ export default function EnhancedAbout() {
             animate={controls}
             variants={lineVariants}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="h-1 bg-gradient-to-r from-[#FF8343] to-[#664343] w-24"
+            className="h-1 bg-gradient-to-r from-[#FF8343] to-[#664343] w-24 mx-auto"
           />
         </motion.div>
 
         <motion.div
           initial="hidden"
           animate={controls}
-          variants={fadeIn({ direction: "left", delay: 0.2 })}
-          className="w-full lg:w-1/2 space-y-8"
+          variants={fadeIn({ direction: "up", delay: 0.2 })}
+          className="space-y-8 max-w-2xl"
         >
           <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#664343]">
             Innovating Your Digital Presence
@@ -121,10 +119,10 @@ export default function EnhancedAbout() {
             animate={controls}
             variants={lineVariants}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="h-1 bg-gradient-to-r from-[#664343] to-[#FF8343] w-24"
+            className="h-1 bg-gradient-to-r from-[#664343] to-[#FF8343] w-24 mx-auto"
           />
           <motion.p
-            variants={fadeIn({ direction: "right", delay: 0.4 })}
+            variants={fadeIn({ direction: "up", delay: 0.4 })}
             className="text-lg sm:text-xl text-zinc-700 leading-relaxed"
           >
             At NAIYO24 PRIVATE LIMITED, we're committed to transforming your digital dreams into reality. As a leading
