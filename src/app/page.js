@@ -31,19 +31,19 @@ export default function Home() {
           <Marquee />
         </section>
 
-        <section className="h-screen sticky top-0">
+        <section className=" sticky top-0" style={{ height: '120vh' }}>
           <About />
         </section>
 
-        <section className="h-screen sticky top-0">
+        <section className="h-[120vh] sticky top-0" >
           <WhatWeDo />
         </section>
 
-        <section className="h-screen sticky top-0">
+        <section className="h-[120vh] sticky top-0">
           <TeamData />
         </section>
 
-        <section className="h-screen sticky top-0">
+        <section className="h-[120vh] sticky top-0">
           <Contact />
         </section>
 

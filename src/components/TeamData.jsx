@@ -72,6 +72,7 @@ const teamData = [
     isFeaturted: true,
   },
 ]
+
 const FloatingShape = ({ animate }) => (
   <motion.div
     className="absolute rounded-full bg-gradient-to-r from-yellow-200 to-yellow-400 opacity-20"
@@ -118,7 +119,7 @@ export default function TeamData() {
   }
 
   return (
-    <div className="bg-white min-h-screen flex flex-col justify-center items-center p-4 md:p-8 relative overflow-hidden">
+    <div className="bg-white min-h-[120vh] flex flex-col justify-center items-center p-4 md:p-8 relative overflow-hidden">
       {[...Array(15)].map((_, index) => (
         <FloatingShape
           key={index}

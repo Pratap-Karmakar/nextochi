@@ -75,66 +75,10 @@ export default function Contact() {
         />
       ))}
 
-      {/* Animated planet */}
-      <motion.div
-        className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-blue-500 to-purple-500"
-        style={{
-          top: '10%',
-          right: '10%',
-        }}
-        animate={{
-          rotate: 360,
-        }}
-        transition={{
-          duration: 200,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      >
-        {/* Planet rings */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-80 h-16 border-t-4 border-opacity-50 border-gray-300 rounded-full"
-          style={{
-            transform: 'translate(-50%, -50%) rotateX(75deg)',
-          }}
-        />
-      </motion.div>
-
-      {/* Animated spaceship */}
-      <motion.div
-        className="absolute w-16 h-24"
-        style={{
-          left: '-10%',
-          top: '50%',
-        }}
-        animate={{
-          x: ['0%', '120%'],
-          y: [0, -50, 50, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "linear",
-        }}
-      >
-        <div className="w-full h-full bg-gray-300 clip-path-spaceship" />
-        <motion.div
-          className="absolute bottom-0 left-1/2 w-4 h-8 bg-orange-500 rounded-full"
-          animate={{
-            scaleY: [1, 1.5, 1],
-          }}
-          transition={{
-            duration: 0.5,
-            repeat: Infinity,
-          }}
-        />
-      </motion.div>
-
       <div className="px-4 pt-14 md:px-10 lg:px-20 md:pt-20 relative z-10">
         <motion.div variants={itemVariants}>
           <motion.p 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-center py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -143,7 +87,7 @@ export default function Contact() {
         </motion.div>
         <motion.div variants={itemVariants}>
           <motion.p 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-center py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -152,7 +96,7 @@ export default function Contact() {
         </motion.div>
         <motion.div variants={itemVariants}>
           <motion.p 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center py-2 md:py-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center py-2 md:py-4"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -186,7 +130,7 @@ export default function Contact() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
           <motion.button
-            className="relative z-10 text-lg sm:text-xl md:text-4xl lg:text-5xl px-8 md:px-12 lg:px-16 py-3 md:py-4 transition-colors duration-300 bg-transparent border-2 border-white rounded-full"
+            className="relative z-10 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 py-2 sm:py-3 md:py-4 transition-colors duration-300 bg-transparent border-2 border-white rounded-full"
             variants={{
               initial: { color: "#ffffff" },
               hover: { color: "#ffffff" },
