@@ -11,7 +11,66 @@ const teamData = [
     title: "BDM SEO and Marketing",
     isFeaturted: true,
   },
-  // ... (other team members data)
+  {
+    quote: "Ongoing Projects - Niayo24, Nariii",
+    name: "Sambik Karmakar",
+    title: "IT Full Stack Graphic Designer",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Nariii",
+    name: "Aaryan Sinha Roy",
+    title: "API, Server-side programming and App Deployment",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Naiyo24, Nariii",
+    name: "Rohit Ghosh",
+    title: "Full Stack, Backend Professional",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Luriana",
+    name: "Pratap Karmakar",
+    title: "Full Stack Web Developer Professional",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Nariii",
+    name: "Rana Kobiraj",
+    title: "Backend Developer",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Naiyo24, Nariii",
+    name: "Subhankar Das",
+    title: "Frontend Developer",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Naiyo24",
+    name: "Kaustubh Upadhyay",
+    title: "IT Backend Developer",
+    isFeaturted: true,
+  },
+  {
+    quote: "Intern",
+    name: "Samadrita Banarjee",
+    title: "IT Frontend Developer",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Naiyo24, Luriana, Nariii",
+    name: "Tamashree Halder",
+    title: "BDM, SEO And Marketing",
+    isFeaturted: true,
+  },
+  {
+    quote: "Ongoing Projects - Naiyo24",
+    name: "Souvik Nandy",
+    title: "Full Stack Developer",
+    isFeaturted: true,
+  },
 ]
 
 const FloatingShape = ({ animate }) => (
