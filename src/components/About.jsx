@@ -67,7 +67,7 @@ export default function EnhancedAbout() {
   }
 
   return (
-    <div className="relative bg-white w-full py-16 md:py-24 lg:py-32 overflow-hidden" style={{ height: '120vh' }}>
+    <div className="relative bg-white w-full py-16 md:py-24 lg:py-32 overflow-hidden h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh]" >
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] opacity-5 bg-repeat" />
 
       {/* Animated Background */}

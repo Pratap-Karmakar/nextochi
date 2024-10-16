@@ -119,7 +119,7 @@ export default function TeamData() {
   }
 
   return (
-    <div className="bg-white min-h-[120vh] flex flex-col justify-center items-center p-4 md:p-8 relative overflow-hidden">
+    <div className="bg-white min-h-screen md:min-h-[120vh] lg:min-h-[120vh] xl:min-h-[120vh] flex flex-col justify-center items-center p-4 md:p-8 relative overflow-hidden">
       {[...Array(15)].map((_, index) => (
         <FloatingShape
           key={index}

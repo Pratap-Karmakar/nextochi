@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react'
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 
-export default function Contact() {
+export default function Component() {
   const router = useRouter()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
@@ -47,7 +47,7 @@ export default function Contact() {
   return (
     <motion.div 
       ref={ref}
-      className="w-full min-h-screen bg-black text-white flex flex-col justify-center items-center overflow-hidden relative"
+      className="w-full h-screen bg-black text-white flex flex-col justify-center items-center overflow-hidden relative"
       initial="hidden"
       animate={controls}
       variants={containerVariants}
@@ -75,10 +75,10 @@ export default function Contact() {
         />
       ))}
 
-      <div className="px-4 pt-14 md:px-10 lg:px-20 md:pt-20 relative z-10">
+      <div className="px-4 md:px-10 lg:px-20 text-center relative z-10">
         <motion.div variants={itemVariants}>
           <motion.p 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -87,7 +87,7 @@ export default function Contact() {
         </motion.div>
         <motion.div variants={itemVariants}>
           <motion.p 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold py-2 md:py-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -96,7 +96,7 @@ export default function Contact() {
         </motion.div>
         <motion.div variants={itemVariants}>
           <motion.p 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center py-2 md:py-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold py-2 md:py-4"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -113,7 +113,7 @@ export default function Contact() {
         </motion.div>
       </div>
       <motion.div 
-        className="flex py-6 md:py-12 justify-center items-center"
+        className="mt-8 md:mt-12"
         variants={itemVariants}
       >
         <motion.div

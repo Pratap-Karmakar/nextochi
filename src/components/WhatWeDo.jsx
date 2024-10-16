@@ -89,12 +89,12 @@ export default function CombinedWhatWeDo() {
   const isInView = useInView(ref, { once: false });
 
   return (
-    <div className="relative h-[120vh] overflow-y-auto">
+    <div className="relative h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh] overflow-y-auto">
       {/* Blurred Top Edge */}
       <div className="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-zinc-900 to-transparent blur-3xl"></div>
       
       <div
-        className="min-h-[120vh] bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16"
+        className="min-h-screen md:min-h-[120vh] lg:min-h-[120vh] xl:min-h-[120vh] bg-zinc-900 text-[#FFF5CD] py-12 md:py-16 lg:py-36 flex items-center px-4 sm:px-8 md:px-16"
         ref={ref}
       >
         <div className="container mx-auto">
