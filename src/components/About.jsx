@@ -65,7 +65,7 @@ export default function Component() {
   }
 
   return (
-    <div className="relative bg-white w-full h-screen overflow-hidden flex items-center justify-center">
+    <div className="relative bg-white w-full min-h-screen overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] opacity-5 bg-repeat" />
 
       {/* Animated Background */}
@@ -82,15 +82,15 @@ export default function Component() {
 
       <div
         ref={ref}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center space-y-12 relative z-10 text-center"
+        className="container mx-auto flex flex-col items-center justify-center space-y-8 sm:space-y-12 relative z-10 text-center"
       >
         <motion.div
           initial="hidden"
           animate={controls}
           variants={fadeIn({ direction: "up" })}
-          className="space-y-6"
+          className="space-y-4 sm:space-y-6"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-zinc-900 leading-tight">
             Welcome to{" "}
             <span className="text-[#FF8343] block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#FF8343] to-[#664343]">
               NAIYO24 PRIVATE LIMITED
@@ -109,9 +109,9 @@ export default function Component() {
           initial="hidden"
           animate={controls}
           variants={fadeIn({ direction: "up", delay: 0.2 })}
-          className="space-y-8 max-w-2xl"
+          className="space-y-6 sm:space-y-8 max-w-2xl"
         >
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#664343]">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#664343]">
             Innovating Your Digital Presence
           </h3>
           <motion.div
@@ -123,7 +123,7 @@ export default function Component() {
           />
           <motion.p
             variants={fadeIn({ direction: "up", delay: 0.4 })}
-            className="text-lg sm:text-xl text-zinc-700 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-zinc-700 leading-relaxed px-4 sm:px-0"
           >
             At NAIYO24 PRIVATE LIMITED, we're committed to transforming your digital dreams into reality. As a leading
             provider of online application and website development services, our mission is to deliver cutting-edge
@@ -133,7 +133,7 @@ export default function Component() {
             variants={fadeIn({ direction: "up", delay: 0.6 })}
             whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-[#FF8343] to-[#664343] text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 hover:from-[#E66A2C] hover:to-[#553232] transform hover:-translate-y-1"
+            className="bg-gradient-to-r from-[#FF8343] to-[#664343] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:from-[#E66A2C] hover:to-[#553232] transform hover:-translate-y-1"
             onClick={handleLearnMore}
           >
             Learn More

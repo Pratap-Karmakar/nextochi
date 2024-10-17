@@ -89,12 +89,12 @@ export default function CenteredServices() {
   const isInView = useInView(ref, { once: false });
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-zinc-900 text-[#FFF5CD] py-12 px-4 sm:px-8 md:px-16 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center bg-zinc-900 text-[#FFF5CD] py-8 sm:py-12 px-4 sm:px-8 md:px-16 overflow-hidden">
       {/* Blurred Top Edge */}
-      <div className="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-zinc-900 to-transparent blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-full h-40 sm:h-60 bg-gradient-to-b from-zinc-900 to-transparent blur-3xl"></div>
       
       <div className="container mx-auto" ref={ref}>
-        <div className="flex flex-col items-center justify-center gap-12">
+        <div className="flex flex-col items-center justify-center gap-8 sm:gap-12">
           <motion.div
             variants={fadeIn("down", 0.3)}
             initial="hidden"
@@ -102,10 +102,10 @@ export default function CenteredServices() {
             exit="exit"
             className="text-center max-w-3xl"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-7xl text-[#FFF0D1] font-bold inter-var mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#FFF0D1] font-bold inter-var mb-4 sm:mb-6">
               What we do.
             </h2>
-            <p className="text-sm md:text-base text-[#FFF0D1] mb-8">
+            <p className="text-xs sm:text-sm md:text-base text-[#FFF0D1] mb-6 sm:mb-8 px-4 sm:px-0">
               NAIYO24 PRIVATE LIMITED specializes in crafting innovative web and mobile solutions
               tailored to your business. We're committed to turning your digital ideas into reality
               with cutting-edge technology and expert services.
@@ -123,15 +123,15 @@ export default function CenteredServices() {
               breakpoints={{
                 340: {
                   slidesPerView: 1,
-                  spaceBetween: 20,
+                  spaceBetween: 16,
                 },
-                700: {
+                640: {
                   slidesPerView: 2,
                   spaceBetween: 20,
                 },
                 1024: {
                   slidesPerView: 3,
-                  spaceBetween: 20,
+                  spaceBetween: 24,
                 },
               }}
               freeMode={true}
@@ -144,22 +144,22 @@ export default function CenteredServices() {
               {serviceData.map((item, index) => (
                 <SwiperSlide key={index}>
                   <Link href={item.link} passHref>
-                    <div className="bg-gradient-to-br from-[#2A2A2A] to-[#1A1A1A] h-[400px] text-[#FFF0D1] rounded-xl px-6 py-8 flex flex-col justify-between gap-x-6 sm:gap-x-0 group cursor-pointer hover:shadow-lg hover:shadow-[#FFF0D1]/10 transition-all duration-300">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="text-4xl text-[#FFF0D1] bg-[#313131] p-3 rounded-full">{item.icon}</div>
-                        <div className="text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-gradient-to-br from-[#2A2A2A] to-[#1A1A1A] h-[350px] sm:h-[400px] text-[#FFF0D1] rounded-xl px-4 sm:px-6 py-6 sm:py-8 flex flex-col justify-between gap-x-4 sm:gap-x-6 group cursor-pointer hover:shadow-lg hover:shadow-[#FFF0D1]/10 transition-all duration-300">
+                      <div className="flex items-center justify-between mb-3 sm:mb-4">
+                        <div className="text-2xl sm:text-3xl md:text-4xl text-[#FFF0D1] bg-[#313131] p-2 sm:p-3 rounded-full">{item.icon}</div>
+                        <div className="text-xl sm:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <RxArrowTopRight className="text-[#FFF0D1]" />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold mb-2 text-[#FFF0D1] group-hover:text-[#FFD700] transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl font-bold mb-2 text-[#FFF0D1] group-hover:text-[#FFD700] transition-colors duration-300">
                           {item.title}
                         </h3>
-                        <p className="text-sm leading-relaxed text-[#B0B0B0] group-hover:text-[#FFF0D1] transition-colors duration-300">
+                        <p className="text-xs sm:text-sm leading-relaxed text-[#B0B0B0] group-hover:text-[#FFF0D1] transition-colors duration-300">
                           {item.description}
                         </p>
                       </div>
-                      <div className="h-1 w-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] mt-4 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                      <div className="h-1 w-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] mt-3 sm:mt-4 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                     </div>
                   </Link>
                 </SwiperSlide>
