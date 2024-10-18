@@ -1,4 +1,5 @@
 'use client'
+
 import { useRef } from 'react'
 import { useScroll } from 'framer-motion'
 import dynamic from 'next/dynamic'
@@ -22,32 +23,32 @@ export default function Home() {
   return (
     <div className="relative w-full bg-zinc-900 text-[#FAF7F0]">
       <Navbar />
-      <div ref={containerRef}>
-        <section className="h-screen sticky top-0">
+      <div ref={containerRef} className="flex flex-col">
+        <section className="min-h-screen sticky top-0">
           <LandingPage scrollYProgress={scrollYProgress} />
         </section>
 
-        <section className="h-screen sticky top-0">
+        <section className="min-h-screen sticky top-0">
           <Marquee />
         </section>
 
-        <section className=" sticky top-0 h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh]">
+        <section className="min-h-screen sticky top-0 md:min-h-[120vh]">
           <About />
         </section>
 
-        <section className="h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh] sticky top-0" >
+        <section className="min-h-screen sticky top-0 md:min-h-[120vh]">
           <WhatWeDo />
         </section>
 
-        <section className="h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh] sticky top-0">
+        <section className="min-h-screen sticky top-0 md:min-h-[120vh]">
           <TeamData />
         </section>
 
-        <section className="h-screen md:h-[120vh] lg:h-[120vh] xl:h-[120vh] sticky top-0">
+        <section className="min-h-screen sticky top-0 md:min-h-[120vh]">
           <Contact />
         </section>
 
-        <section className="h-screen sticky top-0">
+        <section className="min-h-screen sticky top-0">
           <Footer scrollYProgress={scrollYProgress} />
         </section>
       </div>
